@@ -1,0 +1,28 @@
+@layer base {
+    * {
+        margin: 0;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        *::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    body {
+        height: 100vh;
+        margin: 0 auto;
+        font-size: 16px;
+        font-weight: 400;
+        font-family: var(--font-sans);
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+    input {
+        outline: none;
+    }
+    textarea {
+        outline: none;
+    }
+}
