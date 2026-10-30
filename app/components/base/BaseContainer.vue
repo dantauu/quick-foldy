@@ -1,14 +1,5 @@
 <template>
-  <div class="container">
+  <div class="mx-auto w-full max-w-page px-6">
     <slot />
   </div>
 </template>
-
-<style scoped>
-.container {
-  width: 100%;
-  max-width: var(--container-width);
-  margin-inline: auto;
-  padding-inline: var(--space-5);
-}
-</style>
