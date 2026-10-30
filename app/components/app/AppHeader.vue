@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import { installUrl, navLinks } from '~/data/navigation'
+
+const { login, isLoggedIn } = useAuth()
+const handleLogin = async () => {
+  login()
+  await navigateTo('/profile')
+}
 </script>
 
 <template>
@@ -19,7 +25,10 @@ import { installUrl, navLinks } from '~/data/navigation'
       </nav>
 
       <div class="flex gap-3">
-        <BaseButton to="/login" variant="secondary" class="max-sm:hidden">
+        <BaseButton v-if="isLoggedIn" to="/profile" variant="secondary" class="max-sm:hidden">
+          Профиль
+        </BaseButton>
+        <BaseButton @click='handleLogin' v-else to="/login" variant="secondary" class="max-sm:hidden">
           Войти
         </BaseButton>
         <BaseButton :to="installUrl">
