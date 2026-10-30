@@ -28,7 +28,7 @@ const handleLogin = async () => {
         <BaseButton v-if="isLoggedIn" to="/profile" variant="secondary" class="max-sm:hidden">
           Профиль
         </BaseButton>
-        <BaseButton @click='handleLogin' v-else to="/login" variant="secondary" class="max-sm:hidden">
+        <BaseButton @click='handleLogin' v-else variant="secondary" class="max-sm:hidden">
           Войти
         </BaseButton>
         <BaseButton :to="installUrl">
