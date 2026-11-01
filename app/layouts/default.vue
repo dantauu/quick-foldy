@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const { isOpen, close } = useAuthModal()
+const { isOpen, close } = useAuthModal()
 </script>
 
 <template>
@@ -7,6 +7,7 @@
   <main>
     <slot />
   </main>
+  <AppFooter />
   <BaseModal :open="isOpen" @update:open="close">
     <ModalsAuthModal />
   </BaseModal>
