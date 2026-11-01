@@ -1,19 +1,13 @@
 <script setup lang="ts">
-  const { user, logout } = useAuth()
-
-  const handleLogout = async () => {
-    logout()
-    await navigateTo('/')
-  }
+definePageMeta({ layout: 'cabinet' })
 </script>
 
 <template>
-  <div>
-    <p>Profile page</p>
-    <div>
-      <p>Name: {{ user?.name }}</p>
-      <p>Email: {{ user?.email }}</p>
-      <BaseButton variant="secondary" @click="handleLogout">Выйти</BaseButton>
-    </div>
+  <div class="mx-auto flex w-full max-w-3xl flex-col gap-6 px-6 py-14">
+    <h1 class="text-4xl font-extrabold tracking-[-0.03em]">Профиль</h1>
+
+    <ProfileAvatarSection />
+    <ProfilePersonalInfo />
+    <ProfileInstallExtension />
   </div>
 </template>

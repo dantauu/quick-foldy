@@ -1,18 +1,24 @@
 <script setup lang="ts">
 import type { RouteLocationRaw } from 'vue-router'
 
-type Variant = 'primary' | 'secondary'
+type Variant = 'primary' | 'secondary' | 'tonal' | 'danger'
 type Size = 'md' | 'lg'
 
-const { variant = 'primary', size = 'md', to } = defineProps<{
+const {
+  variant = 'primary',
+  size = 'md',
+  to,
+} = defineProps<{
   variant?: Variant
   size?: Size
   to?: RouteLocationRaw
 }>()
 
 const variantClasses: Record<Variant, string> = {
-  primary: 'bg-accent text-on-accent hover:bg-accent-hover',
+  primary: 'border-transparent bg-accent text-on-accent hover:bg-accent-hover',
   secondary: 'border-line bg-surface text-fg hover:border-muted',
+  tonal: 'border-transparent bg-line text-fg hover:border-muted',
+  danger: 'border-line text-folder-terracotta hover:border-folder-terracotta',
 }
 
 const sizeClasses: Record<Size, string> = {
@@ -21,7 +27,7 @@ const sizeClasses: Record<Size, string> = {
 }
 
 const classes = computed(() => [
-  'inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-transparent font-semibold transition-colors',
+  'inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-xl border font-semibold transition-colors',
   variantClasses[variant],
   sizeClasses[size],
 ])
