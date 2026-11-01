@@ -1,0 +1,7 @@
+.nuxt
+.output
+.data
+.yarn
+node_modules
+public
+yarn.lock

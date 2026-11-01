@@ -5036,6 +5036,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:3.9.10":
+  version: 3.9.10
+  resolution: "prettier@npm:3.9.10"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 10c0/0b3531593aa6fb36ac6baf629cb058bda472c59a6938774f931fe55283a07c62e6f56e621b043a82d8a3e21fc284c08c34f9e539fc70072635f79b7bae1a1067
+  languageName: node
+  linkType: hard
+
 "pretty-bytes@npm:^7.2.0":
   version: 7.2.0
   resolution: "pretty-bytes@npm:7.2.0"
@@ -5095,6 +5104,7 @@ __metadata:
   dependencies:
     "@tailwindcss/vite": "npm:^4.3.3"
     nuxt: "npm:^4.6.3"
+    prettier: "npm:3.9.10"
     tailwindcss: "npm:^4.3.3"
     vue: "npm:^3.5.44"
     vue-router: "npm:^5.4.0"
