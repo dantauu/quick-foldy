@@ -1,40 +1,59 @@
 @import 'tailwindcss';
 
 @theme {
-    --color-base: #0e0f11;
-    --color-surface: #141518;
-    --color-line: #26292f;
-    --color-fg: #f4f4f0;
-    --color-muted: #b4b7be;
-    --color-accent: #e2b45e;
-    --color-accent-hover: #ebc275;
-    --color-on-accent: #141414;
-    --color-success: #7fb394;
+  --color-base: #0e0f11;
+  --color-surface: #141518;
+  --color-raised: #1a1c20;
+  --color-line: #26292f;
+  --color-fg: #f4f4f0;
+  --color-muted: #b4b7be;
+  --color-accent: #e2b45e;
+  --color-accent-hover: #ebc275;
+  --color-on-accent: #141414;
+  --color-success: #7fb394;
 
-    --color-folder-terracotta: #e0856b;
-    --color-folder-sand: #e2b45e;
-    --color-folder-blue: #6e98da;
-    --color-folder-green: #7fb394;
+  --color-folder-terracotta: #e0856b;
+  --color-folder-sand: #e2b45e;
+  --color-folder-blue: #6e98da;
+  --color-folder-green: #7fb394;
+  --color-folder-lilac: #a48fd6;
 
-    --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-    --container-page: 75rem;
-    --spacing-header: 72px;
-    --spacing-section: clamp(4rem, 8vw, 7rem);
+  --container-page: 75rem;
+  --spacing-header: 72px;
+  --spacing-section: clamp(4rem, 8vw, 7rem);
 }
 
 @layer base {
-    html {
-        scroll-behavior: smooth;
-        scroll-padding-top: var(--spacing-header);
-        scrollbar-width: none;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--spacing-header);
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    @apply bg-base text-fg font-sans antialiased;
+  }
+}
+
+@layer components {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-reveal]:not([data-revealed]) {
+      opacity: 0;
+      translate: 0 1.5rem;
     }
 
-    html::-webkit-scrollbar {
-        display: none;
+    /* transition только здесь, иначе скрытие в mounted тоже будет анимироваться */
+    [data-revealed] {
+      transition:
+        opacity 0.6s ease,
+        translate 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: var(--reveal-delay, 0ms);
     }
-
-    body {
-        @apply bg-base text-fg font-sans antialiased;
-    }
+  }
 }
