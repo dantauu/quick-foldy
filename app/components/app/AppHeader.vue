@@ -2,6 +2,7 @@
 import { installUrl, navLinks } from '~/data/navigation'
 
 const { login, isLoggedIn } = useAuth()
+const { open } = useAuthModal()
 const handleLogin = async () => {
   login()
   await navigateTo('/profile')
@@ -28,7 +29,7 @@ const handleLogin = async () => {
         <BaseButton v-if="isLoggedIn" to="/profile" variant="secondary" class="max-sm:hidden">
           Профиль
         </BaseButton>
-        <BaseButton @click='handleLogin' v-else variant="secondary" class="max-sm:hidden">
+        <BaseButton v-else variant="secondary" class="max-sm:hidden" @click="open('login')">
           Войти
         </BaseButton>
         <BaseButton :to="installUrl">
