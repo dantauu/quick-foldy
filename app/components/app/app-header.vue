@@ -1,12 +1,8 @@
 <script setup lang="ts">
 import { installUrl, navLinks } from '~/data/navigation'
 
-const { login, isLoggedIn } = useAuth()
+const { isLoggedIn } = useAuth()
 const { open } = useAuthModal()
-const handleLogin = async () => {
-  login()
-  await navigateTo('/profile')
-}
 </script>
 
 <template>
@@ -14,7 +10,6 @@ const handleLogin = async () => {
     <BaseContainer class="grid h-header grid-cols-[auto_1fr_auto] items-center gap-8">
       <AppLogo />
 
-      <!-- Навигация переедет в мобильное меню на следующем шаге -->
       <nav class="invisible justify-self-center lg:visible" aria-label="Основная навигация">
         <ul class="flex gap-8">
           <li v-for="link in navLinks" :key="link.to">
@@ -32,9 +27,7 @@ const handleLogin = async () => {
         <BaseButton v-else variant="secondary" class="max-sm:hidden" @click="open('login')">
           Войти
         </BaseButton>
-        <BaseButton :to="installUrl">
-          Установить
-        </BaseButton>
+        <BaseButton :to="installUrl"> Установить </BaseButton>
       </div>
     </BaseContainer>
   </header>
